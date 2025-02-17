@@ -1,22 +1,22 @@
-import { Button } from 'antd';
-
-import './App.css'
-import ThemeProvider from './providers/themeProvider';
+import "./App.css";
+import LoginForm from "./pages/auth/login";
+import RegisterForm from "./pages/auth/register";
+import HomePage from "./pages/private/home";
+import ThemeProvider from "./providers/themeProvider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  
-
   return (
     <ThemeProvider>
-      <div>
-     
-     <h1 className="text-3xl font-bold underline bg-red-500 text-black">
-     Hello Satyam - The founder of @HelpChain
-  </h1>
-  <Button type="primary">Primary Button</Button>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;
